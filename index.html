@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliCasa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <!-- HERO IMPACTANTE -->
+    <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+
+        <!-- efeito luz -->
+        <div class="absolute w-[600px] h-[600px] bg-blue-500/20 blur-3xl rounded-full"></div>
+
+        <h1 class="text-5xl md:text-7xl font-bold z-10 leading-tight">
+            Sua casa<br>
+            <span class="text-blue-400">pensando por você</span>
+        </h1>
+
+        <p class="mt-6 text-gray-400 max-w-xl z-10">
+            Luzes automáticas, controle por voz e conforto total — sem complicação
+        </p>
+
+        <a href="#contato" class="mt-10 bg-blue-500 px-8 py-4 rounded-2xl text-lg z-10 hover:bg-blue-600">
+            Quero automatizar minha casa
+        </a>
+
+    </section>
+
+    <div class="relative w-full max-w-3xl mx-auto overflow-hidden select-none aspect-video" id="slider">
+
+        <!-- BASE (apagada) -->
+        <img src="imgs/LuzApagada.png"
+            class="absolute top-0 left-0 w-full h-full object-cover">
+
+        <!-- OVERLAY (acesa) -->
+        <div id="overlay" class="absolute top-0 left-0 h-full w-full pointer-events-none">
+            <img src="imgs/LuzAcessa.png"
+                class="absolute top-0 left-0 w-full h-full object-cover">
+        </div>
+
+        <!-- DIVISOR -->
+        <div id="divider" class="absolute top-0 h-full w-1 bg-white cursor-ew-resize z-10"></div>
+
+    </div>
+
+    <!-- SEÇÃO IMERSIVA -->
+    <section class="py-24 px-6 bg-gradient-to-b from-black to-gray-900">
+
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">
+                Tecnologia invisível. Conforto real.
+            </h2>
+
+            <p class="text-gray-400 text-lg">
+                Imagine entrar em casa e as luzes acenderem sozinhas, o ambiente já estar
+                do jeito que você gosta e tudo funcionar com um simples comando de voz.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- BLOCO VISUAL -->
+    <section class="py-10 px-6">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827"
+            class="rounded-3xl w-full max-w-6xl mx-auto shadow-2xl">
+    </section>
+
+    <!-- DIFERENCIAL -->
+    <section class="py-24 px-6 text-center">
+
+        <h2 class="text-4xl font-bold mb-12">Por que escolher a IntelliCasa?</h2>
+
+        <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+
+            <div>
+                <h3 class="text-blue-400 text-xl font-bold mb-2">Simples</h3>
+                <p class="text-gray-400">Você não precisa entender de tecnologia</p>
+            </div>
+
+            <div>
+                <h3 class="text-blue-400 text-xl font-bold mb-2">Rápido</h3>
+                <p class="text-gray-400">Instalação no mesmo dia</p>
+            </div>
+
+            <div>
+                <h3 class="text-blue-400 text-xl font-bold mb-2">Prático</h3>
+                <p class="text-gray-400">Controle tudo pelo celular ou voz</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVIÇOS SEM CARA DE TABELA -->
+    <section class="py-24 px-6 bg-gray-900">
+
+        <h2 class="text-4xl font-bold text-center mb-16">O que podemos fazer por você</h2>
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
+            <div class="bg-black p-8 rounded-3xl border border-gray-800 hover:border-blue-500 transition">
+                <h3 class="text-xl font-bold mb-3">Controle por voz</h3>
+                <p class="text-gray-400">Use Alexa para comandar sua casa inteira</p>
+            </div>
+
+            <div class="bg-black p-8 rounded-3xl border border-gray-800 hover:border-blue-500 transition">
+                <h3 class="text-xl font-bold mb-3">Iluminação inteligente</h3>
+                <p class="text-gray-400">Ambientes automáticos e personalizados</p>
+            </div>
+
+            <div class="bg-black p-8 rounded-3xl border border-gray-800 hover:border-blue-500 transition">
+                <h3 class="text-xl font-bold mb-3">Automação completa</h3>
+                <p class="text-gray-400">Integração total da sua casa</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contato" class="py-24 px-6 text-center">
+
+        <h2 class="text-4xl font-bold mb-6">
+            Pronto para transformar sua casa?
+        </h2>
+
+        <p class="text-gray-400 mb-10">
+            Clique abaixo e fale direto comigo no WhatsApp
+        </p>
+
+        <a href="https://wa.me/SEUNUMERO" class="bg-blue-500 px-10 py-4 rounded-2xl text-lg hover:bg-blue-600">
+            Falar no WhatsApp
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-gray-500 p-6 border-t border-gray-800">
+        © 2026 IntelliCasa
+    </footer>
+
+</body>
+
+<script>
+    const slider = document.getElementById("slider");
+    const overlay = document.getElementById("overlay");
+    const divider = document.getElementById("divider");
+
+    let isDragging = false;
+
+    function updatePosition(x) {
+        const rect = slider.getBoundingClientRect();
+        let position = x - rect.left;
+
+        position = Math.max(0, Math.min(position, rect.width));
+
+        // 🔥 AQUI ESTÁ A MÁGICA
+        overlay.style.clipPath = `inset(0 ${rect.width - position}px 0 0)`;
+
+        divider.style.left = position + "px";
+    }
+
+    // eventos
+    slider.addEventListener("mousedown", () => isDragging = true);
+    window.addEventListener("mouseup", () => isDragging = false);
+
+    window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        updatePosition(e.clientX);
+    });
+
+    // inicial no meio
+    window.addEventListener("load", () => {
+        const rect = slider.getBoundingClientRect();
+        const middle = rect.left + rect.width / 2;
+        updatePosition(middle);
+    });
+</script>
+
+</html>
