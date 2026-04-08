@@ -10,6 +10,50 @@
 
 <body class="bg-black text-white font-sans">
 
+    <!-- MENU -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+            <!-- LOGO -->
+            <h1 class="text-xl font-bold text-white">
+                Intelli<span class="text-blue-400">Casa</span>
+            </h1>
+
+            <!-- MENU DESKTOP -->
+            <nav class="hidden md:flex gap-8 text-gray-300 items-center">
+                <a href="#" class="hover:text-white transition">Início</a>
+                <a href="#" class="hover:text-white transition">Serviços</a>
+                <a href="#" class="hover:text-white transition">Sobre</a>
+                <a href="#contato" class="hover:text-white transition">Contato</a>
+
+                <!-- BOTÃO -->
+                <a href="#contato"
+                    class="bg-blue-500 px-5 py-2 rounded-xl text-white font-semibold hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
+                    Começar
+                </a>
+            </nav>
+
+            <!-- MENU MOBILE BUTTON -->
+            <button id="menuBtn" class="md:hidden text-white text-2xl">
+                ☰
+            </button>
+        </div>
+
+        <!-- MENU MOBILE -->
+        <div id="mobileMenu"
+            class="hidden md:hidden flex flex-col items-center gap-6 pb-6 bg-black/90 backdrop-blur-xl">
+            <a href="#" class="text-gray-300 hover:text-white">Início</a>
+            <a href="#" class="text-gray-300 hover:text-white">Serviços</a>
+            <a href="#" class="text-gray-300 hover:text-white">Sobre</a>
+            <a href="#contato" class="text-gray-300 hover:text-white">Contato</a>
+
+            <a href="#contato"
+                class="bg-blue-500 px-6 py-3 rounded-xl text-white font-semibold hover:bg-blue-600 transition">
+                Começar
+            </a>
+        </div>
+    </header>
+
     <!-- HERO IMPACTANTE -->
     <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
 
@@ -31,20 +75,37 @@
 
     </section>
 
-    <div class="relative w-full max-w-3xl mx-auto overflow-hidden select-none aspect-video" id="slider">
+    <div class="relative w-full h-[70vh] md:h-[80vh] overflow-hidden select-none"
+        style="mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);" id="slider">
 
-        <!-- BASE (apagada) -->
-        <img src="imgs/LuzApagada.png"
-            class="absolute top-0 left-0 w-full h-full object-cover">
+        <!-- BASE -->
+        <img src="imgs/LuzApagada.png" class="absolute top-0 left-0 w-full h-full object-cover">
 
-        <!-- OVERLAY (acesa) -->
+        <!-- OVERLAY -->
         <div id="overlay" class="absolute top-0 left-0 h-full w-full pointer-events-none">
-            <img src="imgs/LuzAcessa.png"
-                class="absolute top-0 left-0 w-full h-full object-cover">
+            <img src="imgs/LuzAcessa.png" class="absolute top-0 left-0 w-full h-full object-cover">
         </div>
 
         <!-- DIVISOR -->
         <div id="divider" class="absolute top-0 h-full w-1 bg-white cursor-ew-resize z-10"></div>
+
+        <!-- TEXTO BASE (apagado - limitado) -->
+        <div id="textBase" class="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-400 opacity-80 whitespace-nowrap">
+                    Alexa, desligar luz
+                </span>
+            </div>
+        </div>
+
+        <!-- TEXTO OVERLAY (aceso - recortado) -->
+        <div id="textOverlay" class="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-4xl md:text-6xl lg:text-7xl font-bold text-blue-400 drop-shadow-lg whitespace-nowrap">
+                    Alexa, ligar luz
+                </span>
+            </div>
+        </div>
 
     </div>
 
@@ -147,9 +208,32 @@
 </body>
 
 <script>
+    const navbar = document.getElementById("navbar");
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    // efeito ao rolar
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add("bg-black/70", "backdrop-blur-xl", "shadow-lg");
+        } else {
+            navbar.classList.remove("bg-black/70", "backdrop-blur-xl", "shadow-lg");
+        }
+    });
+
+    // menu mobile
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
+
+<script>
     const slider = document.getElementById("slider");
     const overlay = document.getElementById("overlay");
     const divider = document.getElementById("divider");
+    const textOn = document.getElementById("textOn");
+    const textOff = document.getElementById("textOff");
+    const textOverlay = document.getElementById("textOverlay");
 
     let isDragging = false;
 
@@ -159,8 +243,15 @@
 
         position = Math.max(0, Math.min(position, rect.width));
 
-        // 🔥 AQUI ESTÁ A MÁGICA
+        // imagem overlay (lado esquerdo visível)
         overlay.style.clipPath = `inset(0 ${rect.width - position}px 0 0)`;
+
+        // texto ON (azul) acompanha imagem
+        textOverlay.style.clipPath = `inset(0 ${rect.width - position}px 0 0)`;
+
+        // 🔥 AQUI ESTÁ A CORREÇÃO
+        // texto OFF (cinza) mostra só o lado direito
+        textBase.style.clipPath = `inset(0 0 0 ${position}px)`;
 
         divider.style.left = position + "px";
     }
@@ -172,6 +263,22 @@
     window.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
         updatePosition(e.clientX);
+    });
+
+    slider.addEventListener("mousedown", () => {
+        isDragging = true;
+
+        // mostra textos
+        textOn.style.opacity = "1";
+        textOff.style.opacity = "1";
+    });
+
+    window.addEventListener("mouseup", () => {
+        isDragging = false;
+
+        // esconde textos
+        textOn.style.opacity = "0";
+        textOff.style.opacity = "0";
     });
 
     // inicial no meio
