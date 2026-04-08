@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IntelliCasa</title>
+    <title>CasaIntelli</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="imgs/icone.ico" type="image/x-icon">
+
 </head>
 
 <body class="bg-black text-white font-sans">
@@ -16,7 +19,7 @@
 
             <!-- LOGO -->
             <h1 class="text-xl font-bold text-white">
-                Intelli<span class="text-blue-400">Casa</span>
+                Casa<span class="text-blue-400">Intelli</span>
             </h1>
 
             <!-- MENU DESKTOP -->
@@ -55,14 +58,14 @@
     </header>
 
     <!-- HERO IMPACTANTE -->
-    <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+    <section class="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
 
         <!-- efeito luz -->
         <div class="absolute w-[600px] h-[600px] bg-blue-500/20 blur-3xl rounded-full"></div>
 
         <h1 class="text-5xl md:text-7xl font-bold z-10 leading-tight">
             Sua casa<br>
-            <span class="text-blue-400">pensando por você</span>
+            <span class="text-blue-400">pensado por você</span>
         </h1>
 
         <p class="mt-6 text-gray-400 max-w-xl z-10">
@@ -125,16 +128,48 @@
 
     </section>
 
-    <!-- BLOCO VISUAL -->
-    <section class="py-10 px-6">
-        <img src="https://images.unsplash.com/photo-1558002038-1055907df827"
-            class="rounded-3xl w-full max-w-6xl mx-auto shadow-2xl">
+    <!-- BLOCO VISUAL MELHORADO -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- TEXTO -->
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Controle sua TV<br>
+                    <span class="text-blue-400">com a sua voz</span>
+                </h2>
+
+                <p class="text-gray-400 text-lg mb-6">
+                    Ligue, desligue e controle sua TV sem encostar no controle.
+                    Com a Alexa, basta um comando de voz para transformar sua experiência.
+                </p>
+
+                <p class="text-gray-500 mb-8">
+                    Chegou em casa? Diga "Alexa, ligar TV" e tudo já estará pronto pra você.
+                    Mais conforto, mais praticidade, mais tecnologia no seu dia a dia.
+                </p>
+
+                <a href="#contato"
+                    class="inline-block bg-blue-500 px-6 py-3 rounded-xl text-lg hover:bg-blue-600 transition">
+                    Quero isso na minha casa
+                </a>
+            </div>
+
+            <!-- IMAGEM -->
+            <div class="relative">
+                <img src="imgs/Alexa ligando TV.png" class="rounded-3xl w-full shadow-2xl">
+
+                <!-- efeito glow -->
+                <div class="absolute -inset-4 bg-blue-500/20 blur-2xl rounded-3xl -z-10"></div>
+            </div>
+
+        </div>
     </section>
 
     <!-- DIFERENCIAL -->
     <section class="py-24 px-6 text-center">
 
-        <h2 class="text-4xl font-bold mb-12">Por que escolher a IntelliCasa?</h2>
+        <h2 class="text-4xl font-bold mb-12">Por que escolher a Casa Intelli?</h2>
 
         <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
 
@@ -157,26 +192,83 @@
 
     </section>
 
-    <!-- SERVIÇOS SEM CARA DE TABELA -->
+    <!-- SERVIÇOS MELHORADO -->
     <section class="py-24 px-6 bg-gray-900">
 
-        <h2 class="text-4xl font-bold text-center mb-16">O que podemos fazer por você</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+            O que podemos fazer por você
+        </h2>
 
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
 
-            <div class="bg-black p-8 rounded-3xl border border-gray-800 hover:border-blue-500 transition">
-                <h3 class="text-xl font-bold mb-3">Controle por voz</h3>
-                <p class="text-gray-400">Use Alexa para comandar sua casa inteira</p>
+            <!-- CARD 1 -->
+            <div
+                class="group bg-black rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500 transition">
+
+                <div class="relative overflow-hidden">
+                    <img src="imgs/ilustracao1.png"
+                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+
+                    <!-- overlay escuro -->
+                    <div class="absolute inset-0 bg-black/40"></div>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-400">
+                        Controle por voz
+                    </h3>
+
+                    <p class="text-gray-400">
+                        Comande luzes, TV e dispositivos apenas falando com a Alexa.
+                    </p>
+                </div>
+
             </div>
 
-            <div class="bg-black p-8 rounded-3xl border border-gray-800 hover:border-blue-500 transition">
-                <h3 class="text-xl font-bold mb-3">Iluminação inteligente</h3>
-                <p class="text-gray-400">Ambientes automáticos e personalizados</p>
+            <!-- CARD 2 -->
+            <div
+                class="group bg-black rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500 transition">
+
+                <div class="relative overflow-hidden">
+                    <img src="imgs/ilustracao2.png"
+                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+
+                    <div class="absolute inset-0 bg-black/40"></div>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-400">
+                        Iluminação inteligente
+                    </h3>
+
+                    <p class="text-gray-400">
+                        Automatize ambientes com luzes que se adaptam ao seu dia a dia.
+                    </p>
+                </div>
+
             </div>
 
-            <div class="bg-black p-8 rounded-3xl border border-gray-800 hover:border-blue-500 transition">
-                <h3 class="text-xl font-bold mb-3">Automação completa</h3>
-                <p class="text-gray-400">Integração total da sua casa</p>
+            <!-- CARD 3 -->
+            <div
+                class="group bg-black rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500 transition">
+
+                <div class="relative overflow-hidden">
+                    <img src="imgs/ilustracao3.png"
+                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+
+                    <div class="absolute inset-0 bg-black/40"></div>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-400">
+                        Automação completa
+                    </h3>
+
+                    <p class="text-gray-400">
+                        Integre toda sua casa e controle tudo de forma simples e centralizada.
+                    </p>
+                </div>
+
             </div>
 
         </div>
