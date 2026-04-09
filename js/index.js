@@ -45,15 +45,13 @@ document.getElementById("whatsappForm").addEventListener("submit", function (e) 
 });
 
 // ===============================
-// SLIDER INTERATIVO
+// SLIDER INTERATIVO AUTOMÁTICO
 // ===============================
 const slider = document.getElementById("slider");
 const overlay = document.getElementById("overlay");
 const divider = document.getElementById("divider");
 const textOverlay = document.getElementById("textOverlay");
 const textBase = document.getElementById("textBase");
-
-let isDragging = false;
 
 // Atualiza posição do slider
 function updatePosition(x) {
@@ -68,29 +66,24 @@ function updatePosition(x) {
     // texto azul acompanha
     textOverlay.style.clipPath = `inset(0 ${rect.width - position}px 0 0)`;
 
-    // texto cinza mostra lado direito
+    // texto cinza acompanha lado oposto
     textBase.style.clipPath = `inset(0 0 0 ${position}px)`;
 
+    // divisor acompanha mouse
     divider.style.left = position + "px";
 }
 
-// Mouse down
-slider.addEventListener("mousedown", () => {
-    isDragging = true;
-});
-
-// Mouse up
-window.addEventListener("mouseup", () => {
-    isDragging = false;
-});
-
-// Mouse move
-window.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
+// Movimento automático ao passar mouse
+slider.addEventListener("mousemove", (e) => {
     updatePosition(e.clientX);
 });
 
-// Posição inicial
+// Suporte para touch mobile
+slider.addEventListener("touchmove", (e) => {
+    updatePosition(e.touches[0].clientX);
+});
+
+// Posição inicial no centro
 window.addEventListener("load", () => {
     const rect = slider.getBoundingClientRect();
     const middle = rect.left + rect.width / 2;

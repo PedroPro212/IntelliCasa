@@ -323,34 +323,30 @@
 
                 <!-- Lado direito -->
                 <div class="p-10">
-                    <form id="whatsappForm" class="space-y-6">
+                    <form id="whatsappForm" class="space-y-6" autocomplete="off">
 
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-300">Seu nome</label>
-                            <input type="text" id="nome" placeholder="Digite seu nome"
+                            <input type="text" id="nome" autocomplete="off" placeholder="Digite seu nome"
                                 class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 required>
                         </div>
 
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-300">WhatsApp</label>
-                            <input type="tel" id="telefone" placeholder="(11) 99999-9999"
+                            <input type="tel" id="telefone" name="telefone_fake_123" autocomplete="new-password"
+                                autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="(11) 99999-9999"
                                 class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 required>
                         </div>
 
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-300">Quais automações deseja?</label>
-                            <textarea id="mensagem" rows="5"
+                            <textarea id="mensagem" autocomplete="off" rows="5"
                                 placeholder="Ex: Quero automatizar luzes, TV, ar-condicionado e tomadas da sala..."
                                 class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 required></textarea>
                         </div>
-
-                        <button type="submit"
-                            class="w-full bg-blue-500 hover:bg-blue-600 transition duration-300 text-white font-bold py-4 rounded-xl text-lg shadow-lg hover:shadow-blue-500/30">
-                            Enviar pelo WhatsApp
-                        </button>
 
                     </form>
                 </div>
@@ -377,9 +373,49 @@
 
     </section>
 
+    <!-- CONTATO E LOCALIZAÇÃO -->
+    <section class="py-20 px-6 bg-black border-t border-gray-800">
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center md:text-left">
+
+            <!-- Marca -->
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    Casa<span class="text-blue-400">Intelli</span>
+                </h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Soluções em automação residencial para transformar sua casa em um ambiente inteligente, moderno e
+                    prático.
+                </p>
+            </div>
+
+            <!-- Contato -->
+            <div>
+                <h4 class="text-xl font-semibold text-blue-400 mb-4">Contato</h4>
+                <ul class="space-y-3 text-gray-300">
+                    <li>📞 (35) 99744-4848</li>
+                    <li>📱 WhatsApp: (35) 99744-4848</li>
+                    <li>✉ desenvolvedordesistemas22@gmail.com</li>
+                </ul>
+            </div>
+
+            <!-- Cidade -->
+            <div>
+                <h4 class="text-xl font-semibold text-blue-400 mb-4">Atendimento</h4>
+                <p class="text-gray-300 leading-relaxed">
+                    📍 Paraisópolis - Minas Gerais
+                    <br>
+                    Atendimento em domicílio e região.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- FOOTER -->
     <footer class="text-center text-gray-500 p-6 border-t border-gray-800">
-        © 2026 IntelliCasa
+        © 2026 CasaIntelli
     </footer>
 
     <script src="js/index.js"></script>
