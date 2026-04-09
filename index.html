@@ -157,7 +157,7 @@
 
             <!-- IMAGEM -->
             <div class="relative">
-                <img src="imgs/Alexa ligando TV.png" class="rounded-3xl w-full shadow-2xl">
+                <img src="imgs/Controle_de_TV.png" class="rounded-3xl w-full shadow-2xl">
 
                 <!-- efeito glow -->
                 <div class="absolute -inset-4 bg-blue-500/20 blur-2xl rounded-3xl -z-10"></div>
@@ -167,27 +167,49 @@
     </section>
 
     <!-- DIFERENCIAL -->
-    <section class="py-24 px-6 text-center">
+    <section class="py-24 px-6 bg-gradient-to-b from-gray-900 to-black text-white">
 
-        <h2 class="text-4xl font-bold mb-12">Por que escolher a Casa Intelli?</h2>
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+                Por que escolher a <span class="text-blue-400">Casa Intelli?</span>
+            </h2>
+            <p class="text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
+                Transformamos sua casa em um ambiente inteligente, moderno e fácil de usar.
+            </p>
 
-        <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
 
-            <div>
-                <h3 class="text-blue-400 text-xl font-bold mb-2">Simples</h3>
-                <p class="text-gray-400">Você não precisa entender de tecnologia</p>
+                <!-- Card 1 -->
+                <div
+                    class="bg-gray-800/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-blue-500/20 transition duration-300 border border-gray-700">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-blue-400 text-2xl font-bold mb-3">Simples</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Você não precisa entender de tecnologia — cuidamos de toda a configuração para você.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-gray-800/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-blue-500/20 transition duration-300 border border-gray-700">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-blue-400 text-2xl font-bold mb-3">Rápido</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Instalação ágil e eficiente, muitas vezes concluída no mesmo dia.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-gray-800/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:scale-105 hover:shadow-blue-500/20 transition duration-300 border border-gray-700">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-blue-400 text-2xl font-bold mb-3">Prático</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Controle luzes, tomadas e dispositivos pelo celular ou comando de voz.
+                    </p>
+                </div>
+
             </div>
-
-            <div>
-                <h3 class="text-blue-400 text-xl font-bold mb-2">Rápido</h3>
-                <p class="text-gray-400">Instalação no mesmo dia</p>
-            </div>
-
-            <div>
-                <h3 class="text-blue-400 text-xl font-bold mb-2">Prático</h3>
-                <p class="text-gray-400">Controle tudo pelo celular ou voz</p>
-            </div>
-
         </div>
 
     </section>
@@ -275,6 +297,69 @@
 
     </section>
 
+    <!-- FORMULÁRIO DE SOLICITAÇÃO -->
+    <section class="py-24 px-6 bg-gray-950 text-white">
+
+        <div class="max-w-4xl mx-auto bg-gray-900 rounded-3xl shadow-2xl border border-gray-800 overflow-hidden">
+
+            <div class="grid md:grid-cols-2">
+
+                <!-- Lado esquerdo -->
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-10 flex flex-col justify-center">
+                    <h2 class="text-4xl font-bold mb-4">Solicite sua automação</h2>
+                    <p class="text-blue-100 text-lg leading-relaxed mb-6">
+                        Conte para nós como você imagina sua casa inteligente.
+                        Envie seu pedido e receba atendimento personalizado via WhatsApp.
+                    </p>
+
+                    <ul class="space-y-3 text-blue-100">
+                        <li>💡 Automação de iluminação</li>
+                        <li>🔌 Tomadas inteligentes</li>
+                        <li>📺 Controle de TV e multimídia</li>
+                        <li>🔐 Fechaduras e segurança</li>
+                        <li>🎙️ Comandos por voz com Alexa</li>
+                    </ul>
+                </div>
+
+                <!-- Lado direito -->
+                <div class="p-10">
+                    <form id="whatsappForm" class="space-y-6">
+
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-300">Seu nome</label>
+                            <input type="text" id="nome" placeholder="Digite seu nome"
+                                class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-300">WhatsApp</label>
+                            <input type="tel" id="telefone" placeholder="(11) 99999-9999"
+                                class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
+                        </div>
+
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-300">Quais automações deseja?</label>
+                            <textarea id="mensagem" rows="5"
+                                placeholder="Ex: Quero automatizar luzes, TV, ar-condicionado e tomadas da sala..."
+                                class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-blue-500 hover:bg-blue-600 transition duration-300 text-white font-bold py-4 rounded-xl text-lg shadow-lg hover:shadow-blue-500/30">
+                            Enviar pelo WhatsApp
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
     <!-- CTA FINAL -->
     <section id="contato" class="py-24 px-6 text-center">
 
@@ -316,6 +401,24 @@
     // menu mobile
     menuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
+    });
+</script>
+
+<script>
+    document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+        const telefone = document.getElementById("telefone").value;
+        const mensagem = document.getElementById("mensagem").value;
+
+        const numeroWhatsApp = "5535997444848"; // SUBSTITUA PELO SEU NÚMERO
+
+        const texto = `Olá! Meu nome é ${nome}%0AWhatsApp: ${telefone}%0A%0ATenho interesse nas seguintes automações:%0A${mensagem}`;
+
+        const url = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
+
+        window.open(url, "_blank");
     });
 </script>
 
