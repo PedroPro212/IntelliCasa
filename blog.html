@@ -3,52 +3,99 @@ layout: default
 title: Blog
 ---
 
-<!-- HERO -->
-<section class="pt-32 pb-16 px-6 text-center bg-gradient-to-b from-black to-gray-900">
-  <h1 class="text-5xl md:text-6xl font-bold mb-6">
-    Blog <span class="text-blue-400">CasaIntelli</span>
-  </h1>
-  <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-    Dicas, novidades e conteúdos sobre automação residencial, Alexa e casas inteligentes.
-  </p>
-</section>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<!-- POSTS GRID -->
-<main class="px-6 pt-12 pb-24">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | CasaIntelli</title>
 
-    {% assign posts_recentes = site.posts | reverse %}
-    {% for post in posts_recentes %}
-    <article
-      class="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500 transition group shadow-xl">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/imgs/icone.ico" type="image/x-icon">
+</head>
 
-      {% if post.image %}
-      <div class="overflow-hidden">
-        <img src="{{ post.image }}"
-          class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
-      </div>
-      {% endif %}
+<body class="bg-black text-white font-sans">
 
-      <div class="p-6">
-        <p class="text-sm text-blue-400 mb-3">
-          {{ post.date | date: "%d/%m/%Y" }}
-        </p>
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="/" class="text-xl font-bold text-white">
+        Casa<span class="text-blue-400">Intelli</span>
+      </a>
 
-        <h2 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition">
-          {{ post.title }}
-        </h2>
+      <nav class="hidden md:flex gap-8 text-gray-300 items-center">
+        <a href="/" class="hover:text-white transition">Início</a>
+        <a href="#" class="hover:text-white transition">Serviços</a>
+        <a href="/blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="/#sobre" class="hover:text-white transition">Sobre</a>
+        <a href="/#contato" class="hover:text-white transition">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-        <p class="text-gray-400 mb-6">
-          {{ post.excerpt | strip_html | truncate: 120 }}
-        </p>
+  <!-- HERO -->
+  <section class="pt-32 pb-16 px-6 text-center bg-gradient-to-b from-black to-gray-900">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+      Blog <span class="text-blue-400">CasaIntelli</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+      Dicas, novidades e conteúdos sobre automação residencial, Alexa e casas inteligentes.
+    </p>
+  </section>
 
-        <a href="{{ post.url }}"
-          class="inline-block bg-blue-500 px-5 py-3 rounded-xl text-white font-semibold hover:bg-blue-600 transition shadow-lg shadow-blue-500/20">
-          Ler artigo
-        </a>
-      </div>
-    </article>
-    {% endfor %}
+  <!-- POSTS GRID -->
+  <main class="px-6 pt-12 pb-24">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-  </div>
-</main>
+      {% assign posts_recentes = site.posts | reverse %}
+      {% for post in posts_recentes %}
+      <article
+        class="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500 transition group shadow-xl">
+
+        <!-- IMAGEM -->
+        {% if post.image %}
+        <div class="overflow-hidden">
+          <img src="{{ post.image }}"
+            class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
+        </div>
+        {% else %}
+        <div class="h-56 bg-gray-800 flex items-center justify-center text-gray-500 text-lg">
+          Sem imagem
+        </div>
+        {% endif %}
+
+        <!-- CONTEÚDO -->
+        <div class="p-6">
+          <p class="text-sm text-blue-400 mb-3">
+            {{ post.date | date: "%d/%m/%Y" }}
+          </p>
+
+          <h2 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition">
+            {{ post.title }}
+          </h2>
+
+          <p class="text-gray-400 mb-6">
+            {{ post.excerpt | strip_html | truncate: 120 }}
+          </p>
+
+          <a href="{{ post.url }}"
+            class="inline-block bg-blue-500 px-5 py-3 rounded-xl text-white font-semibold hover:bg-blue-600 transition shadow-lg shadow-blue-500/20">
+            Ler artigo
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 p-6 border-t border-gray-800">
+    © 2026 CasaIntelli
+  </footer>
+
+</body>
+
+</html>
