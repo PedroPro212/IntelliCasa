@@ -8,7 +8,7 @@
   <title>{{ page.title }} | CasaIntelli Blog</title>
   <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="../imgs/icone.ico" type="image/x-icon">
 </head>
@@ -44,7 +44,7 @@
         {{ page.title }}
       </h1>
 
-      <div class="prose prose-invert prose-lg max-w-none">
+      <div class="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-blue-400">
         {{ content }}
       </div>
 
