@@ -49,7 +49,8 @@
       <a href="/#sobre" class="text-gray-300 hover:text-white">Sobre</a>
       <a href="/#contato" class="text-gray-300 hover:text-white">Contato</a>
 
-      <a href="/#contato" class="bg-blue-500 px-6 py-3 rounded-xl text-white font-semibold hover:bg-blue-600 transition">
+      <a href="/#contato"
+        class="bg-blue-500 px-6 py-3 rounded-xl text-white font-semibold hover:bg-blue-600 transition">
         Começar
       </a>
     </div>
@@ -80,7 +81,15 @@
     © 2026 CasaIntelli
   </footer>
 
-  <script src="../js/header.js"></script>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+  </script>
 
 </body>
 
