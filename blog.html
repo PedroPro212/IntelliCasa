@@ -34,10 +34,28 @@ title: Blog
 
         <!-- BOTÃO -->
         <a href="/#contato"
-            class="bg-blue-500 px-5 py-2 rounded-xl text-white font-semibold hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
-            Começar
+          class="bg-blue-500 px-5 py-2 rounded-xl text-white font-semibold hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
+          Começar
         </a>
       </nav>
+
+      <!-- MENU MOBILE BUTTON -->
+      <button id="menuBtn" class="md:hidden text-white text-2xl">
+        ☰
+      </button>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <div id="mobileMenu" class="hidden md:hidden flex flex-col items-center gap-6 pb-6 bg-black/90 backdrop-blur-xl">
+      <a href="#" class="text-gray-300 hover:text-white">Início</a>
+      <a href="#" class="text-gray-300 hover:text-white">Serviços</a>
+      <a href="/blog.html" class="hover:text-white transition">Blog</a>
+      <a href="/#sobre" class="text-gray-300 hover:text-white">Sobre</a>
+      <a href="/#contato" class="text-gray-300 hover:text-white">Contato</a>
+
+      <a href="/#contato" class="bg-blue-500 px-6 py-3 rounded-xl text-white font-semibold hover:bg-blue-600 transition">
+        Começar
+      </a>
     </div>
   </header>
 
@@ -63,8 +81,7 @@ title: Blog
         <!-- IMAGEM -->
         {% if post.image %}
         <div class="overflow-hidden">
-          <img src="{{ post.image }}"
-            class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
+          <img src="{{ post.image }}" class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
         </div>
         {% else %}
         <div class="h-56 bg-gray-800 flex items-center justify-center text-gray-500 text-lg">
